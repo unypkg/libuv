@@ -77,11 +77,14 @@ get_include_paths
 
 unset LD_RUN_PATH
 
+sh autogen.sh
+
 ./configure \
-    --prefix=/uny/pkg/"$pkgname"/"$pkgver"
+    --prefix=/uny/pkg/"$pkgname"/"$pkgver" \
+    --disable-static
 
 make -j"$(nproc)"
-make -j"$(nproc)" check 
+
 make -j"$(nproc)" install
 
 ####################################################
